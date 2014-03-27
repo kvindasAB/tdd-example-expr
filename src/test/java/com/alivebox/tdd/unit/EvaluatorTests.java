@@ -14,33 +14,31 @@ import org.junit.runners.JUnit4;
 public class EvaluatorTests {
 
     @Test(expected=Exception.class)
-    public void NullOrEmptyStringThrowsException(){
+    public void nullOrEmptyStringThrowsException(){
         Evaluator sut = new Evaluator();
         sut.eval("");
     }
 
     @Test
-    public void OneDigitNumberIsEvaluatedToItsIntegerValue(){
-        Evaluator sut = new Evaluator();
-        int result = sut.eval("7");
-        Assert.assertEquals(7, result);
+    public void oneDigitNumberIsEvaluatedToItsIntegerValue(){
+        checkEvaluation("7", 7);
     }
 
     @Test
-    public void OneDigitNumberIsEvaluatedToItsIntegerValueSecondAttempt(){
-        Evaluator sut = new Evaluator();
-        int result = sut.eval("5");
-        Assert.assertEquals(5, result);
+    public void oneDigitNumberIsEvaluatedToItsIntegerValueSecondAttempt(){
+        checkEvaluation("5", 5);
     }
 
 
     @Test
-    public void MultipleDigitsNumberEvaluatedToItsIntegerValue(){
-        Evaluator sut = new Evaluator();
-        int result = sut.eval("357");
-        Assert.assertEquals(357, result);
+    public void multipleDigitsNumberEvaluatedToItsIntegerValue(){
+        checkEvaluation("357", 357);
     }
 
-
+    private void checkEvaluation(String s, int expected){
+        Evaluator sut = new Evaluator();
+        int result = sut.eval(s);
+        Assert.assertEquals(expected, result);
+    }
 
 }
