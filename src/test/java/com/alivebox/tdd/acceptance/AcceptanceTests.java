@@ -17,7 +17,7 @@ public class AcceptanceTests {
     public void CanAddTwoIntegerNumbers()
     {
         Evaluator sut = new Evaluator();
-        Number result = sut.Eval("10+25");
+        Number result = sut.eval("10+25");
         Assert.assertEquals(35, result);
     }
 
@@ -25,7 +25,7 @@ public class AcceptanceTests {
     public void CanSubtractTwoIntegerNumbers()
     {
         Evaluator sut = new Evaluator();
-        Number result = sut.Eval("300-5");
+        Number result = sut.eval("300-5");
         Assert.assertEquals(295, result);
     }
 

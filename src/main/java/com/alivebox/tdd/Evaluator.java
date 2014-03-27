@@ -6,9 +6,11 @@ package com.alivebox.tdd;
  */
 public class Evaluator {
 
-    public int Eval(String s) throws RuntimeException{
-        throw new RuntimeException();
-        //return 0;
+    public int eval(String s) throws RuntimeException{
+        if(s == null || s.equals("")){
+            throw new RuntimeException();
+        }
+        return new Integer(s);
     }
 
 }
