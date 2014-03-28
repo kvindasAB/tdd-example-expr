@@ -29,10 +29,15 @@ public class EvaluatorTests {
         checkEvaluation("5", 5);
     }
 
-
     @Test
     public void multipleDigitsNumberEvaluatedToItsIntegerValue(){
         checkEvaluation("357", 357);
+    }
+
+    @Test
+    public void AddingTwoNumbers()
+    {
+        checkEvaluation("1+2", 3);
     }
 
     private void checkEvaluation(String s, int expected){
