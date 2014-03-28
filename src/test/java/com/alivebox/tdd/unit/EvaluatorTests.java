@@ -40,6 +40,12 @@ public class EvaluatorTests {
         checkEvaluation("1+2", 3);
     }
 
+    @Test
+    public void SubstractingTwoNumbers()
+    {
+        checkEvaluation("88-20", 68);
+    }
+
     private void checkEvaluation(String s, int expected){
         Evaluator sut = new Evaluator();
         int result = sut.eval(s);

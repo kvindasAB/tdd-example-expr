@@ -1,7 +1,5 @@
 package com.alivebox.tdd;
 
-import java.util.StringTokenizer;
-
 /**
  * Expression Evaluator
  * @author Alivebox
@@ -12,12 +10,19 @@ public class Evaluator {
         if(s == null || s.equals("")){
             throw new RuntimeException();
         }
-        StringTokenizer stok = new StringTokenizer(s, "+");
-        int result = 0;
-        while(stok.hasMoreTokens()){
-            String tmpToken = stok.nextToken();
-            result += new Integer(tmpToken);
+
+        String[] tokens;
+        int result;
+        if(s.contains("+") ){
+            tokens = s.split("\\+");
+            result = new Integer(tokens[0]) + new Integer(tokens[1]);
+        }else if(s.contains("-")){
+            tokens = s.split("\\-");
+            result = new Integer(tokens[0]) - new Integer(tokens[1]);
+        }else{
+            result = new Integer(s);
         }
+
         return result;
     }
 
