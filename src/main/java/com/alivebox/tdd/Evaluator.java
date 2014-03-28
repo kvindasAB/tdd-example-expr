@@ -1,6 +1,8 @@
 package com.alivebox.tdd;
 
 import com.alivebox.tdd.core.Element;
+import com.alivebox.tdd.core.Operand;
+import com.alivebox.tdd.core.Operator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,14 +18,13 @@ public class Evaluator {
             throw new RuntimeException();
         }
 
-        String[] tokens;
+        List<Element> elements = parse(s);
         int result;
-        if(s.contains("+") ){
-            tokens = s.split("\\+");
-            result = new Integer(tokens[0]) + new Integer(tokens[1]);
-        }else if(s.contains("-")){
-            tokens = s.split("\\-");
-            result = new Integer(tokens[0]) - new Integer(tokens[1]);
+
+        if(elements.size() > 1 && elements.get(1).getValue().equals("+") ){
+            result = new Integer(elements.get(0).getValue()) + new Integer(elements.get(2).getValue());
+        }else if(elements.size() > 1 && elements.get(1).getValue().equals("-")){
+            result = new Integer(elements.get(0).getValue()) - new Integer(elements.get(2).getValue());
         }else{
             result = new Integer(s);
         }
@@ -32,7 +33,23 @@ public class Evaluator {
     }
 
     public List<Element> parse(String s){
-        return new ArrayList<Element>();
+        List<Element> result = new ArrayList<Element>();
+        String operand = "";
+        char[] chars = s.toCharArray();
+        for(int i = 0 ; i < chars.length; i++){
+            char tmpChar = chars[i];
+            if(Character.isDigit(tmpChar)){
+                operand += tmpChar;
+            }else{
+                result.add(new Operand(operand));
+                operand = "";
+                result.add(new Operator(tmpChar+""));
+            }
+        }
+        if(!operand.equals("") ){
+            result.add(new Operand(operand));
+        }
+        return result;
     }
 
 }

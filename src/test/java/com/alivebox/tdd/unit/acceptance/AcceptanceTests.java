@@ -1,4 +1,4 @@
-package com.alivebox.tdd.acceptance;
+package com.alivebox.tdd.unit.acceptance;
 
 import com.alivebox.tdd.Evaluator;
 import org.junit.Assert;
