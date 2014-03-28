@@ -1,10 +1,15 @@
 package com.alivebox.tdd.unit;
 
 import com.alivebox.tdd.Evaluator;
+import com.alivebox.tdd.core.Element;
+import com.alivebox.tdd.core.Operand;
+import com.alivebox.tdd.core.Operator;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+
+import java.util.List;
 
 /**
  * Project acceptance test
@@ -44,6 +49,16 @@ public class EvaluatorTests {
     public void SubstractingTwoNumbers()
     {
         checkEvaluation("88-20", 68);
+    }
+
+    @Test
+    public void ParseReturnsAdditionElements(){
+        Evaluator sut = new Evaluator();
+        List<Element> result = sut.parse("1+2");
+        Assert.assertEquals(3, result.size());
+        Assert.assertTrue(result.get(0) instanceof Operand);
+        Assert.assertTrue(result.get(1) instanceof Operator);
+        Assert.assertTrue(result.get(2) instanceof Operand);
     }
 
     private void checkEvaluation(String s, int expected){

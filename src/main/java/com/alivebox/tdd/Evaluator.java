@@ -1,5 +1,10 @@
 package com.alivebox.tdd;
 
+import com.alivebox.tdd.core.Element;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Expression Evaluator
  * @author Alivebox
@@ -24,6 +29,10 @@ public class Evaluator {
         }
 
         return result;
+    }
+
+    public List<Element> parse(String s){
+        return new ArrayList<Element>();
     }
 
 }
