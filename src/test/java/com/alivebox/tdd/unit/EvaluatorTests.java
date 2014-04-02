@@ -51,15 +51,6 @@ public class EvaluatorTests {
         checkEvaluation("88-20", 68);
     }
 
-    @Test
-    public void ParseReturnsAdditionElements(){
-        Evaluator sut = new Evaluator();
-        List<Element> result = sut.parse("1+2");
-        Assert.assertEquals(3, result.size());
-        Assert.assertTrue(result.get(0) instanceof Operand);
-        Assert.assertTrue(result.get(1) instanceof Operator);
-        Assert.assertTrue(result.get(2) instanceof Operand);
-    }
 
     private void checkEvaluation(String s, int expected){
         Evaluator sut = new Evaluator();
