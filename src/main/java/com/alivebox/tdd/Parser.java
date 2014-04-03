@@ -2,7 +2,7 @@ package com.alivebox.tdd;
 
 import com.alivebox.tdd.core.Element;
 import com.alivebox.tdd.core.Operand;
-import com.alivebox.tdd.core.Operator;
+import com.alivebox.tdd.core.OperatorFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +14,7 @@ import java.util.List;
 public class Parser {
 
     public List<Element> parse(String s){
+        OperatorFactory tmpFactory = new OperatorFactory();
         List<Element> result = new ArrayList<Element>();
         String operand = "";
         char[] chars = s.toCharArray();
@@ -22,9 +23,9 @@ public class Parser {
             if(Character.isDigit(tmpChar)){
                 operand += tmpChar;
             }else{
-                result.add(new Operand(operand));
+                result.add( new Operand(operand));
                 operand = "";
-                result.add(new Operator(tmpChar+""));
+                result.add( tmpFactory.create(tmpChar+""));
             }
         }
         if(!operand.equals("") ){

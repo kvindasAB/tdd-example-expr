@@ -1,15 +1,10 @@
 package com.alivebox.tdd.unit;
 
 import com.alivebox.tdd.Evaluator;
-import com.alivebox.tdd.core.Element;
-import com.alivebox.tdd.core.Operand;
-import com.alivebox.tdd.core.Operator;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-
-import java.util.List;
 
 /**
  * Project acceptance test
