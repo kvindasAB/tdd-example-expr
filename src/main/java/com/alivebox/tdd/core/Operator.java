@@ -11,12 +11,12 @@ public class Operator extends Element {
         value = argValue;
     }
 
-    public int compute(int left, int right){
+    public int compute(Operand left, Operand right){
         if(getValue().equals("+")){
-            return left + right;
+            return left.getValue() + right.getValue();
         }
         if(getValue().equals("-")){
-            return left - right;
+            return left.getValue() - right.getValue();
         }
         throw new RuntimeException("Unknown operator");
     }

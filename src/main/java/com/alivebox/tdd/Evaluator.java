@@ -25,7 +25,7 @@ public class Evaluator {
             Operator oper = (Operator) elements.get(1);
             Operand left = (Operand) elements.get(0);
             Operand right = (Operand) elements.get(2);
-            result = oper.compute(left.getValue(), right.getValue() );
+            result = oper.compute(left, right );
         }else{
             result = new Integer(s);
         }

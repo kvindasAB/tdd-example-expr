@@ -1,6 +1,7 @@
 package com.alivebox.tdd.unit.core;
 
 import com.alivebox.tdd.core.Operator;
+import com.alivebox.tdd.core.Operand;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,21 +23,21 @@ public class OperatorTests {
     @Test
      public void additionOperatorComputesCorrectValue(){
         Operator sut = new Operator("+");
-        int result = sut.compute(20, 10);
+        int result = sut.compute(new Operand("20"), new Operand("10"));
         Assert.assertEquals(30, result);
     }
 
     @Test
     public void substractOperatorComputesCorrectValue(){
         Operator sut = new Operator("-");
-        int result = sut.compute(20, 10);
+        int result = sut.compute(new Operand("20"), new Operand("10"));
         Assert.assertEquals(10, result);
     }
 
     @Test(expected=Exception.class)
     public void unknownOperatorThrowsOnCompute(){
         Operator sut = new Operator("");
-        sut.compute(20, 10);
+        sut.compute(new Operand("20"), new Operand("20"));
     }
 
 }
