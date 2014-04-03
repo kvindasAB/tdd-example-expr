@@ -1,6 +1,7 @@
 package com.alivebox.tdd;
 
 import com.alivebox.tdd.core.Element;
+import com.alivebox.tdd.core.Operand;
 import com.alivebox.tdd.core.Operator;
 
 import java.util.List;
@@ -22,7 +23,9 @@ public class Evaluator {
 
         if(elements.size() == 3 ){
             Operator oper = (Operator) elements.get(1);
-            result = oper.compute(new Integer(elements.get(0).getValue()), new Integer(elements.get(2).getValue()) );
+            Operand left = (Operand) elements.get(0);
+            Operand right = (Operand) elements.get(2);
+            result = oper.compute(left.getValue(), right.getValue() );
         }else{
             result = new Integer(s);
         }

@@ -5,8 +5,10 @@ package com.alivebox.tdd.core;
  */
 public class Operator extends Element {
 
+    private String value;
+
     public Operator(String argValue) {
-        super(argValue);
+        value = argValue;
     }
 
     public int compute(int left, int right){
@@ -17,5 +19,13 @@ public class Operator extends Element {
             return left - right;
         }
         throw new RuntimeException("Unknown operator");
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
     }
 }
