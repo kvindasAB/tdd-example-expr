@@ -13,10 +13,30 @@ import org.junit.runners.JUnit4;
 @RunWith(JUnit4.class)
 public class OperatorTests {
 
-    @Test()
+    @Test
     public void constructorSetsValuePropertyCorrectly(){
         Operator sut = new Operator("+");
         Assert.assertEquals("+", sut.getValue());
+    }
+
+    @Test
+     public void additionOperatorComputesCorrectValue(){
+        Operator sut = new Operator("+");
+        int result = sut.compute(20, 10);
+        Assert.assertEquals(30, result);
+    }
+
+    @Test
+    public void substractOperatorComputesCorrectValue(){
+        Operator sut = new Operator("-");
+        int result = sut.compute(20, 10);
+        Assert.assertEquals(10, result);
+    }
+
+    @Test(expected=Exception.class)
+    public void unknownOperatorThrowsOnCompute(){
+        Operator sut = new Operator("");
+        sut.compute(20, 10);
     }
 
 }

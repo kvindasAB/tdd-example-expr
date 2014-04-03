@@ -1,10 +1,8 @@
 package com.alivebox.tdd;
 
 import com.alivebox.tdd.core.Element;
-import com.alivebox.tdd.core.Operand;
 import com.alivebox.tdd.core.Operator;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,10 +20,9 @@ public class Evaluator {
         List<Element> elements = parser.parse(s);
         int result;
 
-        if(elements.size() > 1 && elements.get(1).getValue().equals("+") ){
-            result = new Integer(elements.get(0).getValue()) + new Integer(elements.get(2).getValue());
-        }else if(elements.size() > 1 && elements.get(1).getValue().equals("-")){
-            result = new Integer(elements.get(0).getValue()) - new Integer(elements.get(2).getValue());
+        if(elements.size() == 3 ){
+            Operator oper = (Operator) elements.get(1);
+            result = oper.compute(new Integer(elements.get(0).getValue()), new Integer(elements.get(2).getValue()) );
         }else{
             result = new Integer(s);
         }
