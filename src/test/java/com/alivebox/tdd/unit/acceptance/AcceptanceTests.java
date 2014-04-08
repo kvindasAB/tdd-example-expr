@@ -14,19 +14,33 @@ import org.junit.runners.JUnit4;
 public class AcceptanceTests {
 
     @Test
-    public void CanAddTwoIntegerNumbers()
+    public void canAddTwoIntegerNumbers()
     {
-        Evaluator sut = new Evaluator();
-        Number result = sut.eval("10+25");
-        Assert.assertEquals(35, result);
+        checkEvaluation("10+25", 35);
     }
 
     @Test
-    public void CanSubtractTwoIntegerNumbers()
+    public void canSubtractTwoIntegerNumbers()
     {
+        checkEvaluation("300-5", 295);
+    }
+
+    @Test
+    public void canMultiplyTwoIntegerNumbers()
+    {
+        checkEvaluation("12*30", 360);
+    }
+
+    @Test
+    public void canDivideTwoIntegerNumbers()
+    {
+        checkEvaluation("30/5", 6);
+    }
+
+    private void checkEvaluation(String s, int expected){
         Evaluator sut = new Evaluator();
-        Number result = sut.eval("300-5");
-        Assert.assertEquals(295, result);
+        int result = sut.eval(s);
+        Assert.assertEquals(expected, result);
     }
 
 }

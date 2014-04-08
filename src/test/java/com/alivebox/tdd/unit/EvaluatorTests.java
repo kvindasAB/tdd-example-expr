@@ -46,6 +46,12 @@ public class EvaluatorTests {
         checkEvaluation("88-20", 68);
     }
 
+    @Test
+    public void MultiplyingTwoNumbers()
+    {
+        checkEvaluation("12*3", 36);
+    }
+
 
     private void checkEvaluation(String s, int expected){
         Evaluator sut = new Evaluator();

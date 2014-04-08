@@ -1,9 +1,6 @@
 package com.alivebox.tdd.unit.core;
 
-import com.alivebox.tdd.core.AddOperator;
-import com.alivebox.tdd.core.Operator;
-import com.alivebox.tdd.core.OperatorFactory;
-import com.alivebox.tdd.core.SubstractOperator;
+import com.alivebox.tdd.core.*;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,6 +25,13 @@ public class OperatorFactoryTests {
         OperatorFactory sut = new OperatorFactory();
         Operator tmpOper =  sut.create("-");
         Assert.assertTrue(tmpOper instanceof SubstractOperator);
+    }
+
+    @Test
+    public void asteriskSignReturnsMultiplierOperator(){
+        OperatorFactory sut = new OperatorFactory();
+        Operator tmpOper =  sut.create("*");
+        Assert.assertTrue(tmpOper instanceof MultiplierOperator);
     }
 
     @Test (expected = Exception.class)
