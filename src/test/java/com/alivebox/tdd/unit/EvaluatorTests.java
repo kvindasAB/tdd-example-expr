@@ -52,6 +52,12 @@ public class EvaluatorTests {
         checkEvaluation("12*3", 36);
     }
 
+    @Test
+    public void DividingTwoNumbers()
+    {
+        checkEvaluation("12/3", 4);
+    }
+
 
     private void checkEvaluation(String s, int expected){
         Evaluator sut = new Evaluator();

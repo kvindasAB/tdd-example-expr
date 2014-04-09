@@ -12,12 +12,16 @@ public class OperatorFactory {
         if(argOp.equals("*")){
             return new MultiplierOperator();
         }
+        if(argOp.equals("/")){
+            return new DivisionOperator();
+        }
         if(argOp.equals("+")){
             return new AddOperator();
         }
         if(argOp.equals("-")){
             return new SubstractOperator();
         }
+
         throw new RuntimeException("Invalid operator: " + argOp);
     }
 }

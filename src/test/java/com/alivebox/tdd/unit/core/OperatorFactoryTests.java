@@ -36,6 +36,11 @@ public class OperatorFactoryTests {
         check("*", MultiplierOperator.class);
     }
 
+    @Test
+    public void slashSignReturnsMultiplierOperator(){
+        check("/", DivisionOperator.class);
+    }
+
     @Test (expected = Exception.class)
     public void unknownSignThrowsException(){
         getOperatorFactory().create("x");
