@@ -15,13 +15,13 @@ public class OperandTests {
 
     @Test()
     public void constructorSetsValuePropertyCorrectly(){
-        Operand sut = new Operand("5");
+        Operand sut = new Operand(5);
         Assert.assertEquals(5, sut.getValue());
     }
 
     @Test()
     public void constructorSetsValuePropertyCorrectlyMultipleDigits(){
-        Operand sut = new Operand("123");
+        Operand sut = new Operand(123);
         Assert.assertEquals(123, sut.getValue());
     }
 

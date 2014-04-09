@@ -7,8 +7,8 @@ public class Operand extends Element{
 
     private int value;
 
-    public Operand(String argValue) {
-        value = new Integer(argValue);
+    public Operand(int argValue) {
+        setValue(argValue);
     }
 
     public int getValue() {

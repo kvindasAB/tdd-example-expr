@@ -25,21 +25,21 @@ public class OperatorTests {
     @Test
      public void additionOperatorComputesCorrectValue(){
         Operator sut = new AddOperator();
-        int result = sut.compute(new Operand("20"), new Operand("10"));
+        int result = sut.compute(new Operand(20), new Operand(10));
         Assert.assertEquals(30, result);
     }
 
     @Test
     public void substractOperatorComputesCorrectValue(){
         Operator sut = new SubstractOperator();
-        int result = sut.compute(new Operand("20"), new Operand("10"));
+        int result = sut.compute(new Operand(20), new Operand(10));
         Assert.assertEquals(10, result);
     }
 
     @Test(expected=Exception.class)
     public void unknownOperatorThrowsOnCompute(){
         Operator sut = new Operator("");
-        sut.compute(new Operand("20"), new Operand("20"));
+        sut.compute(new Operand(20), new Operand(20));
     }
 
 }

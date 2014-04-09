@@ -1,8 +1,6 @@
 package com.alivebox.tdd;
 
-import com.alivebox.tdd.core.Element;
-import com.alivebox.tdd.core.Operand;
-import com.alivebox.tdd.core.Operator;
+import com.alivebox.tdd.core.*;
 
 import java.util.List;
 
@@ -17,7 +15,7 @@ public class Evaluator {
             throw new RuntimeException();
         }
 
-        Parser parser = new Parser();
+        Parser parser = new Parser(new OperatorFactory(), new OperandFactory());
         List<Element> elements = parser.parse(s);
         int result;
 

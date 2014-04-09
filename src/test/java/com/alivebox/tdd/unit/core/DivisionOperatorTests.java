@@ -18,7 +18,7 @@ public class DivisionOperatorTests {
     @Test
      public void divisionOperatorComputesCorrectValue(){
         Operator sut = new DivisionOperator();
-        int result = sut.compute(new Operand("20"), new Operand("10"));
+        int result = sut.compute(new Operand(20), new Operand(10));
         Assert.assertEquals(2, result);
     }
 

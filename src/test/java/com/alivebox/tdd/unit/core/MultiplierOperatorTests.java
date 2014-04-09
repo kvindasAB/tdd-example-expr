@@ -18,7 +18,7 @@ public class MultiplierOperatorTests {
     @Test
      public void multiplierOperatorComputesCorrectValue(){
         Operator sut = new MultiplierOperator();
-        int result = sut.compute(new Operand("12"), new Operand("3"));
+        int result = sut.compute(new Operand(12), new Operand(3));
         Assert.assertEquals(36, result);
     }
 

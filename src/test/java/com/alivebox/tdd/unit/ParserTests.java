@@ -2,9 +2,7 @@ package com.alivebox.tdd.unit;
 
 import com.alivebox.tdd.Evaluator;
 import com.alivebox.tdd.Parser;
-import com.alivebox.tdd.core.Element;
-import com.alivebox.tdd.core.Operand;
-import com.alivebox.tdd.core.Operator;
+import com.alivebox.tdd.core.*;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,7 +25,7 @@ public class ParserTests {
 
     @Test
     public void ParseReturnsAdditionElements(){
-        Parser sut = new Parser();
+        Parser sut = new Parser(new OperatorFactory(), new OperandFactory());
         List<Element> result = sut.parse("1+2");
         Assert.assertEquals(3, result.size());
         int i = 0;
