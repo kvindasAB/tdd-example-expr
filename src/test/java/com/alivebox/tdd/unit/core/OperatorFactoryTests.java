@@ -2,6 +2,7 @@ package com.alivebox.tdd.unit.core;
 
 import com.alivebox.tdd.core.*;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -13,33 +14,44 @@ import org.junit.runners.JUnit4;
 @RunWith(JUnit4.class)
 public class OperatorFactoryTests {
 
+    protected OperatorFactory operatorFactory;
+
+    @Before
+    public void setUp() throws Exception {
+        operatorFactory = new OperatorFactory();
+    }
+
     @Test
     public void plusSignReturnsAddOperator(){
-        OperatorFactory sut = new OperatorFactory();
-        Operator tmpOper =  sut.create("+");
-        Assert.assertTrue(tmpOper instanceof AddOperator);
+        check("+", AddOperator.class);
     }
 
     @Test
     public void minusSignReturnsSubstractOperator(){
-        OperatorFactory sut = new OperatorFactory();
-        Operator tmpOper =  sut.create("-");
-        Assert.assertTrue(tmpOper instanceof SubstractOperator);
+        check("-", SubstractOperator.class);
     }
 
     @Test
     public void asteriskSignReturnsMultiplierOperator(){
-        OperatorFactory sut = new OperatorFactory();
-        Operator tmpOper =  sut.create("*");
-        Assert.assertTrue(tmpOper instanceof MultiplierOperator);
+        check("*", MultiplierOperator.class);
     }
 
     @Test (expected = Exception.class)
     public void unknownSignThrowsException(){
-        OperatorFactory sut = new OperatorFactory();
-        sut.create("x");
+        getOperatorFactory().create("x");
     }
 
+    private void check(String op, Class type) {
+        Operator result = getOperatorFactory().create(op);
+        Assert.assertEquals(result.getClass(), type);
+    }
 
+    public OperatorFactory getOperatorFactory() {
+        return operatorFactory;
+    }
+
+    public void setOperatorFactory(OperatorFactory operatorFactory) {
+        this.operatorFactory = operatorFactory;
+    }
 
 }
